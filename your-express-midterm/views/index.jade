@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h2 Students
+  table.table.table-bordered
+    thead
+      tr
+        th Student Number
+        th First Name
+        th Last Name
+        th Email Address
+        th Actions
+    tbody
+      each student in students
+        tr
+          td= student.studentNumber
+          td= student.firstName
+          td= student.lastName
+          td= student.emailAddress
+          td
+            a.btn.btn-primary(href='/students/edit/' + student._id) Edit
+            a.btn.btn-danger(href='/students/delete/' + student._id) Delete
+
+  a.btn.btn-success(href='/students/create') Add a new Student
+
